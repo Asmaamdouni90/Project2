@@ -1,0 +1,23 @@
+<h1>La lise des Classes</h1>
+{% if tabclassroom is empty %}
+<h1> Pas de formation</h1>
+{% else %}
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>NumberofStudient</td>
+    </tr>
+{% for i in tabclassroom %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.description | upper }}</td>
+        <td> {{ i.numberofstuident }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+<h3> Nbr de classe :{{ tabclassroom | length }}</h3>
+<a href="{{ path('addclassroom') }}">Ajouter une classe</a>
